@@ -43,16 +43,31 @@ function removeItem(index) {
 //     }
 
 function addItemToCart(title, price, imageSrc) {
+    // Retrieve existing cart items from local storage
+    var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Check if the item already exists in the cart
+    for (var i = 0; i < cartItems.length; i++) {
+        if (cartItems[i].title === title) {
+            alert('This item is already added to the cart');
+            return; // Exit the function if the item is found
+        }
+    }
+
+    // Create a new cart row object for the new item
     var cartRow = {
         title: title,
         price: price,
         imageSrc: imageSrc
     };
     
-    var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    // Add the new item to the cart items array
     cartItems.push(cartRow);
+    
+    // Update the local storage with the new cart items array
     localStorage.setItem('cart', JSON.stringify(cartItems));
 
+    // Update the UI to reflect the new cart state
     updateCartUI();
 }
 
