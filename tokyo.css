@@ -1,0 +1,52 @@
+.image-box {
+    text-align: left;
+}
+
+.image-box img {
+    width: 200px;
+    height: 2o0px;
+    border: 5px solid black;
+}
+#next{
+    width:50px;
+    height:50px;
+    position: relative;
+    left: 450px;
+    bottom: 100px; 
+}
+.image-box{
+    float: left;
+    width: 30%;
+    padding: 5px;
+}
+.image-container::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.image-container {
+    display: flex; /* Enables flexible positioning */
+    flex-wrap: wrap; /* Allows images to wrap to the next line if necessary */
+    justify-content: flex-start; /* Aligns items from the left */
+    gap: 15px; /* Adds spacing between image boxes */
+    padding: 20px; /* Adjust spacing around the container */
+}
+
+.image-box {
+    width: 200px; /* Ensures consistent sizing */
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Ensures caption stays below the image */
+}
+
+.image-box img {
+    width: 200px;
+    height: 200px;  
+    border: 5px solid black;
+    border-style: onset;
+}
+*{
+	background-color: #3A0705;
+	color: white;
+}
